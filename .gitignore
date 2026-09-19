@@ -1,0 +1,9 @@
+node_modules
+dist
+.env
+server/.env
+server/uploads/
+server/data-store.json
+server/users-backup.json
+*.zip
+.DS_Store
