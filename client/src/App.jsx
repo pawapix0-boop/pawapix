@@ -3,6 +3,7 @@ import GigCard from './components/GigCard';
 import Navbar from './components/Navbar';
 import AdminDashboard from './admin/AdminDashboard';
 import { decryptChatMessage, deriveChatKey, encryptChatMessage, getChatIdentity } from './utils/chatCrypto';
+import { applyLoggedInEmail } from './utils/formDefaults';
 
 const socialLinks = [
   {
@@ -470,6 +471,14 @@ function App() {
       setAuthStatus({ type: 'error', message: data.error || 'Unable to request password reset.' });
     }
   };
+
+  useEffect(() => {
+    if (!user?.email) return;
+    setProjectForm((previous) => ({ ...previous, email: applyLoggedInEmail(previous.email, user.email) }));
+    setCreativeForm((previous) => ({ ...previous, email: applyLoggedInEmail(previous.email, user.email) }));
+    setSupportForm((previous) => ({ ...previous, email: applyLoggedInEmail(previous.email, user.email) }));
+    setCheckoutForm((previous) => ({ ...previous, email: applyLoggedInEmail(previous.email, user.email) }));
+  }, [user?.email]);
 
   useEffect(() => {
     if (user?.id) {
