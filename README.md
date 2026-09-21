@@ -49,3 +49,4 @@ Default special admin credentials for local development:
 Set `SPECIAL_ADMIN_EMAIL` and `SPECIAL_ADMIN_PASSWORD` in a local `.env` file to replace these defaults. The regular admin credentials can be changed with `ADMIN_EMAIL` and `ADMIN_PASSWORD`. Never commit `.env` or production credentials.
 "# testmode" 
 "# testmode" 
+"# pawapix" 
